@@ -1,5 +1,5 @@
 {
-  "name": "google-ads-api",
+  "name": "google-ads-api-vtex",
   "version": "0.6.2",
   "description": "Google Ads API Client Library for JavaScript",
   "main": "./lib/index.js",
@@ -28,15 +28,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Opteo/google-ads-api.git"
+    "url": "https://github.com/pfrayha/google-ads-api.git"
   },
   "keywords": [],
-  "author": "Opteo",
+  "author": "pfrayha",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Opteo/google-ads-api/issues"
+    "url": "https://github.com/pfrayha/google-ads-api/issues"
   },
-  "homepage": "https://github.com/Opteo/google-ads-api#readme",
+  "homepage": "https://github.com/pfrayha/google-ads-api#readme",
   "devDependencies": {
     "@types/jest": "^24.0.9",
     "jest": "^24.1.0",

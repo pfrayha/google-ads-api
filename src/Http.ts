@@ -196,10 +196,10 @@ export default class Http implements HttpController {
         return this.queryApi(options)
     }
 
-    public async query(query: string, page_size = 10000) {
+    public async query(query: string, page_size = 10000, token?: string) {
         await this.client.account_promise
         const url = this.getRequestUrl()
-        const options = await this.getRequestOptions('POST', url)
+        const options = await this.getRequestOptions('POST', url, token)
 
         query = query.replace(/\s/g, ' ')
 
@@ -383,12 +383,14 @@ export default class Http implements HttpController {
         })
     }
 
-    private async getRequestOptions(method: string, url: string): Promise<RequestOptions> {
+    private async getRequestOptions(method: string, url: string, token?: string): Promise<RequestOptions> {
         const access_token = await getAccessToken(this.client)
         const headers: any = {
             'Content-Type': 'application/json',
             authorization: `Bearer ${access_token}`,
             'developer-token': this.client.developer_token,
+            'X-Vtex-Use-Https': true,
+            'Proxy-Authorization': token? token: null,
         }
 
         if (this.client.manager_cid && this.client.manager_cid.length > 0) {
