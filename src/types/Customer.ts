@@ -37,7 +37,7 @@ declare namespace Customer {
         geoTargetConstants: GeoTargetConstants
         update: (config: UpdateConfig) => Promise<any>
         retrieve: () => Promise<any>
-        query: (query: string, token?: string) => Promise<any>
+        query: (query: string, token?: string, logger?: any) => Promise<any>
         report: (config: ReportConfig) => Promise<any>
     }
 }

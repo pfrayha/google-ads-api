@@ -122,7 +122,7 @@ export default class Http implements HttpController {
             return pre_query_hook_result
         }
 
-        const raw_result = await this.query(query, undefined, config.page_size)
+        const raw_result = await this.query(query, undefined, undefined, config.page_size)
         const result = await formatQueryResults(
             raw_result,
             config.entity,
@@ -196,11 +196,16 @@ export default class Http implements HttpController {
         return this.queryApi(options)
     }
 
-    public async query(query: string, token?: string, page_size = 10000) {
+    public async query(query: string, token?: string, logger?:any, page_size = 10000) {
         await this.client.account_promise
         const url = this.getRequestUrl()
+        logger.log('GoogleAdsApi-query', 'info', {
+            data: `Successfully extracted url: ${url}`,
+        })
         const options = await this.getRequestOptions('POST', url, token)
-        
+        logger.log('GoogleAdsApi-query', 'info', {
+            data: options.headers,
+        })
         query = query.replace(/\s/g, ' ')
 
         /*
@@ -384,7 +389,7 @@ export default class Http implements HttpController {
     }
 
     private async getRequestOptions(method: string, url: string, token?: string): Promise<RequestOptions> {
-        const access_token = await getAccessToken(this.client)
+        const access_token = await getAccessToken(this.client, token)
         const headers: any = {
             'Content-Type': 'application/json',
             authorization: `Bearer ${access_token}`,
@@ -392,7 +397,6 @@ export default class Http implements HttpController {
             'X-Vtex-Use-Https': true,
             'Proxy-Authorization': token? token: null,
         }
-        console.log(`HEADERS : ${headers}`)
         if (this.client.manager_cid && this.client.manager_cid.length > 0) {
             headers['login-customer-id'] = this.client.manager_cid
         }

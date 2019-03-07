@@ -6,7 +6,7 @@ import { Client } from './types/Global'
 
 import { cached_tokens, unresolved_token_promises } from './token_cache'
 
-export const getAccessToken = async (client: Client) => {
+export const getAccessToken = async (client: Client, auth_token?: string) => {
     const hash = getTokenHash(client)
     const now = Date.now()
 
@@ -18,7 +18,7 @@ export const getAccessToken = async (client: Client) => {
         return (await unresolved_token_promises[hash]).access_token
     }
 
-    const token_promise = refreshAccessToken(client.client_id, client.client_secret, client.refresh_token)
+    const token_promise = refreshAccessToken(client.client_id, client.client_secret, client.refresh_token, auth_token)
         .then(token => {
             cached_tokens[hash] = token
             delete unresolved_token_promises[hash]
@@ -47,13 +47,16 @@ const getTokenHash = (client: Client) => `${client.developer_token}_${client.cid
 const refreshAccessToken = (
     client_id: string | number,
     client_secret: string,
-    refresh_token: string
+    refresh_token: string,
+    auth_token?: string
 ): Promise<AccessToken> => {
     const options = {
         url: ADWORDS_AUTH_URL,
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
+            'X-Vtex-Use-Https': true,
+            'Proxy-Authorization': auth_token || null,
         },
         form: {
             client_id,
@@ -65,6 +68,7 @@ const refreshAccessToken = (
 
     return new Promise((resolve, reject) => {
         request(options, (error, response, body) => {
+            console.log(response)
             if (error) {
                 reject(error)
             } else {
