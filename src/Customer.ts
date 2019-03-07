@@ -44,7 +44,7 @@ export default function Customer(http_controller: HttpController): Customer {
         ),
         update: (config: UpdateConfig) => http_controller.update(config, 'mutateCustomer'),
         retrieve: () => http_controller.retrieve(ENDPOINTS.customers),
-        query: (query: string) => http_controller.query(query),
+        query: (query: string, token?: string) => http_controller.query(query, token),
         report: (config: ReportConfig) => http_controller.report(config),
     }
 }

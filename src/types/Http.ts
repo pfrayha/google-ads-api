@@ -13,7 +13,7 @@ declare namespace Http {
         list(config: ListConfig | undefined, resource: string): Promise<object>
         update(config: UpdateConfig | UpdateConfig[], entity: string): Promise<object>
         delete(entity: string, entity_id: string | number): Promise<object>
-        query(entity: string): Promise<object>
+        query(entity: string, token?: string): Promise<object>
         report(config: ReportConfig): Promise<object>
         suggest(config: SuggestGeoTargetConstantConfig, entity: string): Promise<any>
     }
