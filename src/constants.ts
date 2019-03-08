@@ -1,5 +1,5 @@
-export const ADWORDS_API_BASE_URL = 'https://googleads.googleapis.com/v0/'
-export const ADWORDS_AUTH_URL = 'https://accounts.google.com/o/oauth2/token'
+export const ADWORDS_API_BASE_URL = 'http://googleads.googleapis.com/v0/'
+export const ADWORDS_AUTH_URL = 'http://accounts.google.com/o/oauth2/token'
 
 export enum ENDPOINTS {
     search = 'googleAds:search',

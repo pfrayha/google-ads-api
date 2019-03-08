@@ -199,7 +199,6 @@ export default class Http implements HttpController {
     public async query(query: string, token?: string, page_size = 10000) {
         await this.client.account_promise
         const url = this.getRequestUrl()
-        console.log(`Request URL: ${url}`)
         const options = await this.getRequestOptions('POST', url, token)
         query = query.replace(/\s/g, ' ')
 
