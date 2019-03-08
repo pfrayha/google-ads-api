@@ -18,6 +18,7 @@ export const getAccessToken = async (client: Client, auth_token?: string) => {
         return (await unresolved_token_promises[hash]).access_token
     }
 
+    console.log("Refreshing token...")
     const token_promise = refreshAccessToken(client.client_id, client.client_secret, client.refresh_token, auth_token)
         .then(token => {
             cached_tokens[hash] = token
@@ -68,7 +69,7 @@ const refreshAccessToken = (
 
     return new Promise((resolve, reject) => {
         request(options, (error, response, body) => {
-            console.log(response)
+            console.log(`Options: ${options}`)
             if (error) {
                 reject(error)
             } else {
