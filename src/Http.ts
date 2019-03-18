@@ -76,10 +76,10 @@ export default class Http implements HttpController {
     /*
      *   PUBLIC METHODS
      */
-    public async create(config: NewEntityConfig | NewEntityConfig[], entity: string) {
+    public async create(config: NewEntityConfig | NewEntityConfig[], entity: string, token?: string) {
         await this.client.account_promise
         const url = this.getRequestUrl('mutate', entity)
-        const options = await this.getRequestOptions('POST', url)
+        const options = await this.getRequestOptions('POST', url, token)
 
         if (Array.isArray(config)) {
             const operations = config.map(operation => ({ create: this.formatRequestConfig(operation, entity) }))

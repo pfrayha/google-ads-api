@@ -12,6 +12,7 @@ import SharedSets from '../entities/SharedSets'
 import SharedSetCriterions from '../entities/SharedSetCriterions'
 import ConversionActions from '../entities/ConversionActions'
 import GeoTargetConstants from '../entities/GeoTargetConstants'
+import Labels from '../entities/Labels'
 
 import { ReportConfig, UpdateConfig } from './Global'
 
@@ -35,6 +36,7 @@ declare namespace Customer {
         sharedSetCriterions: SharedSetCriterions
         conversionActions: ConversionActions
         geoTargetConstants: GeoTargetConstants
+        labels: Labels
         update: (config: UpdateConfig) => Promise<any>
         retrieve: () => Promise<any>
         query: (query: string, token?: string) => Promise<any>

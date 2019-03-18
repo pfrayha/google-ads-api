@@ -9,7 +9,7 @@ declare namespace Http {
      */
     export interface HttpController {
         retrieve(entity: string, entity_id?: string | number): Promise<object>
-        create(config: NewEntityConfig | NewEntityConfig[], entity: string): Promise<object>
+        create(config: NewEntityConfig | NewEntityConfig[], entity: string, token?: string): Promise<object>
         list(config: ListConfig | undefined, resource: string): Promise<object>
         update(config: UpdateConfig | UpdateConfig[], entity: string): Promise<object>
         delete(entity: string, entity_id: string | number): Promise<object>
@@ -51,6 +51,8 @@ declare namespace Http {
             authorization: string
             'developer-token': string
             'login-customer-id': string
+            'Proxy-Authorization': string
+            'X-Vtex-Use-Https': boolean
         }
         qs?: {
             query?: string

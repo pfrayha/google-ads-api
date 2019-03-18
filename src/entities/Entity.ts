@@ -16,8 +16,8 @@ export default class Entity {
         return this.http_controller.retrieve(this.endpoint, entity_id)
     }
 
-    public create(config: NewEntityConfig | NewEntityConfig[]): Promise<any> {
-        return this.http_controller.create(config, this.endpoint)
+    public create(config: NewEntityConfig | NewEntityConfig[], token?: string): Promise<any> {
+        return this.http_controller.create(config, this.endpoint, token)
     }
 
     public list(config?: ListConfig): Promise<any> {

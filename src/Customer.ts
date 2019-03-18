@@ -12,6 +12,7 @@ import SharedSets from './entities/SharedSets'
 import SharedSetCriterions from './entities/SharedSetCriterions'
 import ConversionActions from './entities/ConversionActions'
 import GeoTargetConstants from './entities/GeoTargetConstants'
+import Labels from './entities/Labels'
 
 import { ENDPOINTS, RESOURCE_NAMES } from './constants'
 import { Customer } from './types/Customer'
@@ -42,6 +43,7 @@ export default function Customer(http_controller: HttpController): Customer {
             ENDPOINTS.geo_target_constants,
             RESOURCE_NAMES.geo_target_constant
         ),
+        labels: new Labels(http_controller),
         update: (config: UpdateConfig) => http_controller.update(config, 'mutateCustomer'),
         retrieve: () => http_controller.retrieve(ENDPOINTS.customers),
         query: (query: string, token?: string) => http_controller.query(query, token),
