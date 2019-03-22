@@ -19,6 +19,7 @@ import { Customer } from './types/Customer'
 import { HttpController } from './types/Http'
 import { ReportConfig, UpdateConfig } from './types/Global'
 import CampaignLabels from './entities/CampaignLabels';
+import CustomerLabels from './entities/CustomerLabels';
 
 export default function Customer(http_controller: HttpController): Customer {
     return {
@@ -46,6 +47,7 @@ export default function Customer(http_controller: HttpController): Customer {
         ),
         labels: new Labels(http_controller),
         campaignLabels: new CampaignLabels(http_controller),
+        customerLabels: new CustomerLabels(http_controller),
         update: (config: UpdateConfig) => http_controller.update(config, 'mutateCustomer'),
         retrieve: () => http_controller.retrieve(ENDPOINTS.customers),
         query: (query: string, token?: string) => http_controller.query(query, token),

@@ -14,6 +14,7 @@ import ConversionActions from '../entities/ConversionActions'
 import GeoTargetConstants from '../entities/GeoTargetConstants'
 import Labels from '../entities/Labels'
 import CampaignLabels from '../entities/CampaignLabels';
+import CustomerLabels from '../entities/CustomerLabels';
 
 import { ReportConfig, UpdateConfig } from './Global'
 
@@ -39,6 +40,7 @@ declare namespace Customer {
         geoTargetConstants: GeoTargetConstants
         labels: Labels
         campaignLabels: CampaignLabels
+        customerLabels: CustomerLabels
         update: (config: UpdateConfig) => Promise<any>
         retrieve: () => Promise<any>
         query: (query: string, token?: string) => Promise<any>

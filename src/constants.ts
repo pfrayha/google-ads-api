@@ -17,6 +17,7 @@ export enum ENDPOINTS {
     geo_target_constants = 'geoTargetConstants',
     labels = 'labels',
     campaign_labels = 'campaignLabels',
+    customer_labels = 'customerLabels',
 }
 
 export enum RESOURCE_NAMES {
@@ -33,4 +34,5 @@ export enum RESOURCE_NAMES {
     geo_target_constant = 'geo_target_constant',
     labels = 'labels',
     campaign_labels = 'campaign_labels',
+    customer_labels = 'customer_labels',
 }
