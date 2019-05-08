@@ -15,6 +15,7 @@ import GeoTargetConstants from '../entities/GeoTargetConstants'
 import Labels from '../entities/Labels'
 import CampaignLabels from '../entities/CampaignLabels';
 import CustomerLabels from '../entities/CustomerLabels';
+import AccountBudgetProposals from '../entities/AccountBudgetProposals'
 
 import { ReportConfig, UpdateConfig } from './Global'
 
@@ -41,6 +42,7 @@ declare namespace Customer {
         labels: Labels
         campaignLabels: CampaignLabels
         customerLabels: CustomerLabels
+        accountBudgetProposals: AccountBudgetProposals
         update: (config: UpdateConfig) => Promise<any>
         retrieve: () => Promise<any>
         query: (query: string, token?: string) => Promise<any>

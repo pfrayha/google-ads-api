@@ -4,7 +4,7 @@ import { ENDPOINTS, RESOURCE_NAMES } from '../constants'
 import { HttpController } from '../types/Http'
 import { NewAccountBudgetProposalConfig } from '../types/AccountBudgetProposal'
 
-export default class Campaigns extends Entity {
+export default class AccountBudgetProposals extends Entity {
     constructor(http_controller: HttpController) {
         super(http_controller, ENDPOINTS.account_budget_proposals, RESOURCE_NAMES.account_budget_proposal)
     }
