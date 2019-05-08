@@ -73,18 +73,18 @@ export default class Http implements HttpController {
         }
     }
 
-    private getUpdateMask(config: any) {
-        let update_mask = {}
-        for (var key in config) {
-            if(config[key]){
-                update_mask = {
-                    paths: key,
-                    ...update_mask
-                }
-            }
-        }
-        return update_mask
-    }
+    // private getUpdateMask(config: any) {
+    //     let update_mask = {}
+    //     for (var key in config) {
+    //         if(config[key]){
+    //             update_mask = {
+    //                 ...update_mask,
+    //                 paths: key
+    //             }
+    //         }
+    //     }
+    //     return update_mask
+    // }
 
     /*
      *   PUBLIC METHODS
@@ -98,7 +98,7 @@ export default class Http implements HttpController {
             const operations = config.map(operation => ({ create: this.formatRequestConfig(operation, entity) }))
             options.body = JSON.stringify({ operations })
         } else if (entity === 'accountBudgetProposals') {
-            let update_mask = this.getUpdateMask(config)
+            let update_mask = { paths: 'proposed_spending_limit_micros' }
             let operation = { update_mask, create: config }
             options.body = JSON.stringify({ operation })
         } else {
