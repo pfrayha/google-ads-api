@@ -1,6 +1,6 @@
 {
   "name": "google-ads-api-vtex",
-  "version": "0.6.29",
+  "version": "0.6.30",
   "description": "Google Ads API Client Library for JavaScript",
   "main": "./lib/index.js",
   "typings": "./lib/index.d.ts",
