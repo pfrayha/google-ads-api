@@ -100,7 +100,7 @@ export default class Http implements HttpController {
         } else if (entity === 'accountBudgetProposals') {
             let update_mask = this.getUpdateMask(config)
             let operation = { update_mask, create: config }
-            options.body = JSON.stringify(operation)
+            options.body = JSON.stringify({ operation })
         } else {
             config = this.formatRequestConfig(config, entity)
             const create_operation = { create: config }
