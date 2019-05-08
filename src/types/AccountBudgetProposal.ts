@@ -24,7 +24,7 @@ declare namespace AccountBudgetProposal {
         proposed_name: string
         proposed_start_date_time: string
         proposed_end_date_time: string
-        proposed_spending_limit_micros: string
+        proposed_spending_limit_micros: number
     }
 
     export interface NewAccountBudgetProposalConfig extends NewEntityConfig {
@@ -33,7 +33,7 @@ declare namespace AccountBudgetProposal {
         proposed_name?: string
         proposed_start_date_time?: string
         proposed_end_date_time?: string
-        proposed_spending_limit_micros?: string
+        proposed_spending_limit_micros?: number
     }
 
 }
