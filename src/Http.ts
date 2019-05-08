@@ -380,7 +380,7 @@ export default class Http implements HttpController {
         }
 
         return retry(work, {
-            max_tries: 3,
+            max_tries: 5,
             interval: 1000 + random(1000),
             throw_original: true,
             backoff: 2,
