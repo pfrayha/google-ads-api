@@ -26,8 +26,7 @@ declare namespace CustomerClientLink {
     }
 
     export interface NewCustomerClientLinkConfig extends NewEntityConfig {
-        customer: string
-        label: string
+        client_customer: string
         status: CustomerClientLinkStatus
     }
 
