@@ -101,6 +101,9 @@ export default class Http implements HttpController {
             let update_mask = { paths: 'proposed_spending_limit_micros' }
             let operation = { update_mask, create: config }
             options.body = JSON.stringify({ operation })
+        } else if (entity === 'customerClientLinks') {
+            let operation = { create: config }
+            options.body = JSON.stringify({ operation })
         } else {
             config = this.formatRequestConfig(config, entity)
             const create_operation = { create: config }

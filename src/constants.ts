@@ -18,7 +18,9 @@ export enum ENDPOINTS {
     labels = 'labels',
     campaign_labels = 'campaignLabels',
     customer_labels = 'customerLabels',
-    account_budget_proposals = 'accountBudgetProposals'
+    account_budget_proposals = 'accountBudgetProposals',
+    customer_client_links = 'customerClientLinks',
+    customer_manager_links = 'customerManagerLinks',
 }
 
 export enum RESOURCE_NAMES {
@@ -37,4 +39,6 @@ export enum RESOURCE_NAMES {
     campaign_labels = 'campaign_labels',
     customer_labels = 'customer_labels',
     account_budget_proposal = 'account_budget_proposal',
+    customer_client_link = 'customer_client_link',
+    customer_manager_link = 'customer_manager_link',
 }

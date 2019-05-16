@@ -24,7 +24,7 @@ export default class Entity {
         return this.http_controller.list(config, this.resource)
     }
 
-    public update(config: EntityUpdateConfig | EntityUpdateConfig[]): Promise<any> {
+    public update(config: EntityUpdateConfig | EntityUpdateConfig[], token?: string): Promise<any> {
         return this.http_controller.update(config, this.endpoint)
     }
 
